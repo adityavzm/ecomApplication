@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.AfterMethod;
 import Learning.pageObjects.LoginPage;
@@ -18,8 +19,10 @@ public class BaseTest {
 	
 	
 	public WebDriver initializeDriver() {
+		FirefoxOptions ops = new FirefoxOptions();
+		ops.addArguments("--headless");
 		
-		driver = new FirefoxDriver();
+		driver = new FirefoxDriver(ops);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
 		
