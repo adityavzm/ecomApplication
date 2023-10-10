@@ -33,5 +33,5 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Run Regression Tests
-      run: mvn test -Psmoke
+      run: mvn test -PSmoke
 
