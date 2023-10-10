@@ -32,3 +32,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Run Regression Tests
+      run: mvn test -Psmoke
+
