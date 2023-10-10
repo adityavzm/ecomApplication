@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: Learning.FeatureFiles.testRunner
+Test set: Learning.FeatureFiles.SmokeRunner
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.979 s - in Learning.FeatureFiles.testRunner
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.28 s -- in Learning.FeatureFiles.SmokeRunner

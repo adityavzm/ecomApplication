@@ -16,11 +16,11 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-
+@regression
 Feature: Test Login Page 
   I want to use this template for my feature file
 
-
+	@smoke
   Scenario: Login application with valid credentials
     Given User can access application
     And Login with valid username <name> and password <password>
@@ -30,7 +30,7 @@ Feature: Test Login Page
       | name 								| password  |
       | adityatest@test.com | Test@123  |
 
-
+	@smoke
   Scenario: Login application with invalid credentials
     Given User can access application
     And Login with valid username <name> and password <password>

@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@regression
 Feature: Adding product to cart
   I want to use this template for my feature file
 
