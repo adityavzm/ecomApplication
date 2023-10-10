@@ -42,7 +42,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./target/cucumber-report-html
       
-
-    - name: Run Regression Tests
-      run: mvn test -PSmoke
-
