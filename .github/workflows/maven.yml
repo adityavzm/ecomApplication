@@ -36,11 +36,15 @@ jobs:
       run: mvn test -PSmoke
 
      
-    - name: Archive code coverage results
+    - name: Cucumber Reports
       uses: actions/upload-artifact@v3
       with:
           name: Cucumber Report
-          path: |
-	    target/cucumber.html
-	    target\surefire-reports\junitreports\*.xml
-      
+          path: target/cucumber.html
+
+
+    - name: Junit Reports
+      uses: actions/upload-artifact@v3
+      with:
+          name: Cucumber Report
+          path: target/surefire-reports/junitreports/*.xml
