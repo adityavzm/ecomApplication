@@ -40,5 +40,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
           name: Cucumber Report
-          path: target/cucumber.html
+          path: |
+	    target/cucumber.html
+	    target\surefire-reports\junitreports\*.xml
       
