@@ -30,3 +30,17 @@ Feature: Adding product to cart
     Examples: 
       | username            | password | productName |
       | adityatest@test.com | Test@123 | ZARA COAT 3 |
+      
+      
+  @tag2
+  Scenario Outline: Navigate to product description and return back to products page
+    Given User logged into portal with <username> and <password>
+    When User adds to cart the cart <productName>
+    And  Click on View button <productName>
+    And  Click continue button on product description page
+    Then Return to products page <productName>
+
+
+    Examples: 
+      | username            | password | productName |
+      | adityatest@test.com | Test@123 | ZARA COAT 3 |

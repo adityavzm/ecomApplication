@@ -34,4 +34,19 @@ public class productPageDefinitions extends BaseTest {
 		Assert.assertNotNull(productPage.getNumberOfOrders(), "Items added to cart");
 		tearDown();
 	}
+	
+	@And("^Click on View button (.+)$")
+	public void Click_on_View_button(String productName) {
+		productPage.clickOnViewButton(productName);
+	}
+	
+	@And("Click continue button on product description page")
+	public void Click_continue_button_on_product_description_page() {
+		productPage.clickOnContinueProductDesc();
+	}
+	
+	@And("^Return to products page (.+)$")
+	public void Return_to_products_page(String productName) {
+		Assert.assertEquals(productPage.verifyProductsPage(productName), true , "return SuccessFull");
+	}
 }

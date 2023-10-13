@@ -32,10 +32,17 @@ public class ProductPage extends AbstractComponents{
 	@FindBy(css=".ng-animating")
 	WebElement spinner;
 	
+	@FindBy(css=".continue")
+	WebElement continueButton;
+	
+	
+	
 	
 	By productsBy = By.cssSelector(".mb-3");
 	By addtoCart = By.cssSelector(".card-body button:last-of-type");
 	By toastMessage = By.cssSelector("#toast-container");
+	By viewButton = By.cssSelector(".card-body button:first-of-type");
+	
 	
 	public List<WebElement> getProductsList() {
 		waitForElementToApper(productsBy);
@@ -54,6 +61,27 @@ public class ProductPage extends AbstractComponents{
 		waitForElementToDisappear(spinner);
 	}
 	
+	public void clickOnViewAndReturnBack(String productName) {
+		WebElement prod = getProductByName(productName);
+		prod.findElement(viewButton).click();
+		waitForWebElementToApper(continueButton);
+		continueButton.click();
+		waitForElementToApper(viewButton);
+		
+	}
 	
+	public void clickOnViewButton(String productName) {
+		WebElement prod = getProductByName(productName);
+		prod.findElement(viewButton).click();
+	}
 	
+	public void clickOnContinueProductDesc() {
+		waitForWebElementToApper(continueButton);
+		continueButton.click();
+	}
+	
+	public Boolean verifyProductsPage(String productName) {
+		WebElement prod = getProductByName(productName);
+		return prod.findElement(viewButton).isDisplayed();
+	}
 }
