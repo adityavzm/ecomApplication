@@ -84,6 +84,7 @@ public class Listners extends BaseTest implements ITestListener {
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onFinish(context);
+		extent.flush();
 	}
 
 }
