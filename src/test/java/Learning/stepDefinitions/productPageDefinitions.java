@@ -2,7 +2,10 @@ package Learning.stepDefinitions;
 
 import org.testng.Assert;
 
+import Learning.pageObjects.CartPage;
+import Learning.pageObjects.ConfirmationPage;
 import Learning.pageObjects.LoginPage;
+import Learning.pageObjects.OrderPage;
 import Learning.pageObjects.ProductPage;
 import Learning.testComponents.BaseTest;
 import io.cucumber.java.en.And;
@@ -13,7 +16,9 @@ public class productPageDefinitions extends BaseTest {
 	
 	public LoginPage loginPage;
 	public ProductPage productPage;
-	
+	public CartPage cartPage;
+	public OrderPage orderPage;
+	public ConfirmationPage confPage;
 	
 	@Given("^User logged into portal with (.+) and (.+)$")
 	public void User_logged_into_portal(String userName, String password) {
@@ -48,5 +53,26 @@ public class productPageDefinitions extends BaseTest {
 	@And("^Return to products page (.+)$")
 	public void Return_to_products_page(String productName) {
 		Assert.assertEquals(productPage.verifyProductsPage(productName), true , "return SuccessFull");
+	}
+	
+	@And("User clicks on checkout")
+	public void User_clicks_on_checkout() {
+		
+		cartPage = loginPage.goToCartPage();
+		orderPage = cartPage.clickCheckOutButton();
+		
+	}
+	
+	@And("^User adds country (.+)$")
+	public void User_adds_country(String country) {
+		
+		orderPage.enterCountryAndSelect(country);
+	}
+	
+	@Then("clicking on Place Orders should complete the order")
+	public void clicking_on_Place_Orders_should_complete_the_order() {
+		confPage = orderPage.placeOrder();
+		String message = confPage.confrimMessage();
+		Assert.assertTrue(message.equalsIgnoreCase("Thankyou for the order."));
 	}
 }

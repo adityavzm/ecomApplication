@@ -39,6 +39,7 @@ public class LoginApplication extends BaseTest
 		productPage.addProductToCart("ZARA COAT 3");
 	}
 	
+	@Test
 	public void navigateToCartPageAndbackToProduct() {
 		LoginPage loginPage = launchApplication();
 		ProductPage productPage = loginPage.enterUserCrendentialsAndLogin("adityatest@test.com", "Test@123");
