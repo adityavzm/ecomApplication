@@ -74,5 +74,6 @@ public class productPageDefinitions extends BaseTest {
 		confPage = orderPage.placeOrder();
 		String message = confPage.confrimMessage();
 		Assert.assertTrue(message.equalsIgnoreCase("Thankyou for the order."));
+		tearDown();
 	}
 }
