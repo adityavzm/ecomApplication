@@ -7,11 +7,13 @@ import java.time.Duration;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.AfterMethod;
 import Learning.pageObjects.LoginPage;
+import Learning.resources.AppConfig;
 
 public class BaseTest {
 	
@@ -19,13 +21,23 @@ public class BaseTest {
 	
 	
 	public WebDriver initializeDriver() {
-		FirefoxOptions ops = new FirefoxOptions();
-		ops.addArguments("--headless");
+		String browser = AppConfig.browser;
 		
-		driver = new FirefoxDriver(ops);
+		if(browser.contains("headless")){
+			FirefoxOptions ops = new FirefoxOptions();
+			ops.addArguments("--headless");
+			
+			driver = new FirefoxDriver(ops);
+
+		}else if(browser.contains("chrome")) {
+			driver = new ChromeDriver();
+			
+		}else {
+			driver = new FirefoxDriver();
+		}
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
-		
 		return driver;
 		
 	}
