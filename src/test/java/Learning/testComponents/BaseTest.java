@@ -23,6 +23,7 @@ public class BaseTest {
 	public WebDriver initializeDriver() {
 		String browser = AppConfig.browser;
 		
+		
 		if(browser.contains("headless")){
 			FirefoxOptions ops = new FirefoxOptions();
 			ops.addArguments("--headless");
@@ -44,8 +45,9 @@ public class BaseTest {
 	
 
 	public LoginPage launchApplication() {
+		String url = AppConfig.url;
 		driver = initializeDriver();
-		driver.get("https://rahulshettyacademy.com/client");
+		driver.get(url);
 		LoginPage loginPage = new LoginPage(driver);		
 		return loginPage;
 	}
@@ -61,8 +63,7 @@ public class BaseTest {
 		File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
 		FileHandler.copy(Source, file);
 		return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
-		
-		
+				
 	}
 
 }

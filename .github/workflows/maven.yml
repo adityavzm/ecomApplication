@@ -31,7 +31,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Run tests
-      run: mvn test -PSmoke
+      run: mvn test -PSmoke -Durl=${{secrets.URL}}
 
      
     - name: Cucumber Reports
